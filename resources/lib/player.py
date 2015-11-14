@@ -58,7 +58,7 @@ class XstreamPlayer(xbmc.Player):
                         if int(episode) > 0: mediaType = 'episode'
                     if imdbID and mediaType:
                         if mediaType == 'movie' or mediaType == 'tvshow':
-                            metaInfo = meta.get_meta(self._mediaType, self.__sTitle, imdbID)
+                            metaInfo = meta.get_meta(self._mediaType, self.__sTitle.decode('ascii', 'replace').encode('ascii', 'replace'), imdbID)
                         elif mediaType == 'season':
                             metaInfo = meta.get_seasons(TVShowTitle, imdbID, str(season))
                         elif mediaType == 'episode' and TVShowTitle:
