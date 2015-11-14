@@ -218,7 +218,7 @@ class cGuiElement:
             return False
         oMetaget = metahandlers.MetaData()
         if self._mediaType == 'movie' or self._mediaType == 'tvshow':
-            meta = oMetaget.get_meta(self._mediaType, self.__sTitle)
+            meta = oMetaget.get_meta(self._mediaType, self.__sTitle.decode('ascii', 'replace').encode('ascii', 'replace'))
             #if self._mediaType == 'tvshow' and not self.__aItemValues['TVShowTitle']:
             #    self.setTVShowTitle(self.__sTitle)
         elif self._mediaType == 'season':
